@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define MAX 16
-#define abs(x) ((x) >= 0 ? (x) : (-x))
+#define abs(x) ((x) >= 0 ? (x) : -(x))
 
 void nQueens(int N, int col[MAX], int row);
 int isPromising(int col[MAX], int row);
