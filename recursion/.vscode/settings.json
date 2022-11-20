@@ -1,0 +1,5 @@
+{
+    "code-runner.executorMap": {
+        "c": "cd $dir && gcc $fileName -o ./out/$fileNameWithoutExt && $dir/out/$fileNameWithoutExt < $dir/input/$fileNameWithoutExt_input.txt"
+    }
+}

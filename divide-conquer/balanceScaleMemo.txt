@@ -1,0 +1,6 @@
+
+    // coins <- [100, 50, 20, 10, 5, 2, 1]
+    // numDiffCoins <- 7
+    // change <- 거스름돈 금액
+    // coinsUsed <- 동적 계획 저장 리스트: 개수
+    // lastCoin <- 동적 계획 저장 리스트: 최소 코인
