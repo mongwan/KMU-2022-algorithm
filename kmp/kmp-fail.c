@@ -3,8 +3,6 @@
 #define LENGTH 1001
 
 int fail(char str[], int n);
-int failarr[LENGTH], failbool[LENGTH];
-failbool[0] = 1;
 
 int main(void) {
     int t;
@@ -42,19 +40,17 @@ int main(void) {
 
 int fail(char str[], int k) {
     if (k == 0) return 0;
-    if (failbool[k]) return failarr[k];
-    
     int j = 0;
+    int failarr[LENGTH] = {0, };
 
     for(int i = 1; i <= k; i++) {
         while (j > 0 && str[i] != str[j]) {
-            j = failarr[j-1];
+            j = fail(str, j-1);
         }
         if (str[i] == str[j]) {
             failarr[i] = ++j;
-            failbool[i] = 1;
         }
     }
-
+    
     return failarr[k];
 }
