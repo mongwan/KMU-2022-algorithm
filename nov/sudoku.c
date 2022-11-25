@@ -6,15 +6,17 @@ int test(int sudo[SIZE][SIZE]);
 void print(int sudo[SIZE][SIZE]);
 void sudoku(int sudo[SIZE][SIZE], int n);
 
+int finded;
+
 int main(void) {
     int t;
     scanf("%d", &t);
     for (int _ = 0; _ < t; _++) {
+        finded = 0;
         int sudo[SIZE][SIZE] = {0,};
         for (int i = 0; i < SIZE; i++)
             for (int j = 0; j < SIZE; j++)
                 scanf("%d", &sudo[i][j]);
-    
         sudoku(sudo, 0);
     }
 
@@ -22,6 +24,7 @@ int main(void) {
 }
 
 void sudoku(int sudo[SIZE][SIZE], int n) {
+    if (finded) return;
     int a = n/SIZE;
     int b = n%SIZE;
 
@@ -34,14 +37,16 @@ void sudoku(int sudo[SIZE][SIZE], int n) {
         if (!test(sudo)) continue;
 
         if (n == SIZE*SIZE-1) {
-            if (test(sudo))
+            if (!finded && test(sudo)) {
+                finded = 1;
                 print(sudo);
+            } 
             return;
         }
 
         sudoku(sudo, n+1);
-        sudo[a][b] = 0;
     }
+    sudo[a][b] = 0;
 }
 
 void print(int sudo[SIZE][SIZE]) {
